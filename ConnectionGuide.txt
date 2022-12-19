@@ -1,0 +1,44 @@
+Document about how to connect mssql database to Visual Studio Community
+
+*Copy the Server Name from the MSSQL.
+*Goto Server Explorer on Visual Studio Community.
+*Click Connect to Database/ Or Right click and "Add Connection".
+
+Data Source Selection
+**Select Microsoft SQL Server.
+**Select Data provider : .NET Framework Data Provider for OLE DB.
+
+Add Connection
+*Paste the Server name you copied,
+*Leave it Windows Authentication part and proceed to "Connect to a database".
+*On "Select or enter a database name", Click the down arrow to select "what" database to connect.
+*Optional(Click to Test Connection) to Test the connectivity.
+*Then click OK
+*Data Connection Added!
+
+Visual Studio Connection.cs
+*I Assume you created Connection/Connect using System.Data.Sql
+*Click the Newly Data Connection and Check on the properties 
+*Copy the Connection String.
+*Paste the following "Data Source=NAMEOFTHEDATABASECONNECTION;Initial Catalog=NameOftheDatabase;Integrated Security=True"
+
+Its look like this.
+
+using System.Data.SqlClient;
+namespace InventoryManagementSystem
+{
+    class Connection
+    {
+        SqlConnection conn;
+        public SqlConnection getConnect()
+        {
+            conn = new SqlConnection("Data Source=DESKTOP-R3P2SAF\\SQLEXPRESS;Initial Catalog=InventoryCodeFirst;Integrated Security=True");
+            return conn;
+        }
+    }
+}
+
+
+Connection is completed!
+
+ 
